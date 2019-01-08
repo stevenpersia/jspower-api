@@ -14,7 +14,7 @@ app.use('/api', cors());
 
 // CONNEXION AU SERVEUR
 mongoose.connect(
-	process.env.URI || 'mongodb://localhost:27017/jspower',
+	process.env.MONGODB_URI || 'mongodb://localhost:27017/jspower',
 	{
 		useNewUrlParser: true
 	},
@@ -62,6 +62,6 @@ app.use(function(err, req, res, next) {
 });
 
 // Initialisation du s
-app.listen(process.env.PORT || 3001, function() {
+app.listen(process.env.MONGODB_PORT || 3001, function() {
 	console.log('Serveur initialisé');
 });
