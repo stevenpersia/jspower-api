@@ -5,13 +5,15 @@ const Category = require('../models/Category.js');
 
 // All categories
 router.get('/', function(req, res, next) {
-	Category.find().exec(function(err, categories) {
-		if (err) {
-			return next(err.message);
-		} else {
-			return res.json(categories);
-		}
-	});
+	Category.find()
+		.sort('title')
+		.exec(function(err, categories) {
+			if (err) {
+				return next(err.message);
+			} else {
+				return res.json(categories);
+			}
+		});
 });
 
 // Create a category
