@@ -7,6 +7,7 @@ const Category = require('../models/Category.js');
 router.get('/', function(req, res, next) {
 	Category.find()
 		.sort('title')
+		.limit(20)
 		.exec(function(err, categories) {
 			if (err) {
 				return next(err.message);
