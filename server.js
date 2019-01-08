@@ -62,6 +62,6 @@ app.use(function(err, req, res, next) {
 });
 
 // Initialisation du s
-app.listen(process.env.MONGODB_PORT || 3001, function() {
+app.listen(process.env.PORT || 3001, function() {
 	console.log('Serveur initialisé');
 });
