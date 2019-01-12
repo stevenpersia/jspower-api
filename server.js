@@ -37,6 +37,11 @@ app.get('/', function(req, res) {
 	res.send('JS POWER is running');
 });
 
+// Prevent sleep mode - Heroku
+app.get('/wakemydyno.txt', function(req, res) {
+	res.send("Dont't Sleep !");
+});
+
 // Les routes relatives aux utilisateurs auront pour prefix d'URL `/user`
 app.use('/api/categories', categoryRoutes);
 app.use('/api/links', linkRoutes);
