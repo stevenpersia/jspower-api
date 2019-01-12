@@ -49,11 +49,11 @@ app.use('/api/users', userRoutes);
 
 // Toutes les méthodes HTTP (GET, POST, etc.) des pages non trouvées afficheront
 // une erreur 404
-app.all('*', function(req, res) {
-	res.status(404).json({
-		error: 'Not Found'
-	});
-});
+// app.all('*', function(req, res) {
+// 	res.status(404).json({
+// 		error: 'Not Found'
+// 	});
+// });
 
 // Le dernier middleware de la chaîne gérera les d'erreurs Ce `error handler`
 // doit définir obligatoirement 4 paramètres Définition d'un middleware :
