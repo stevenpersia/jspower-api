@@ -37,11 +37,6 @@ app.get('/', function(req, res) {
 	res.send('JS POWER is running');
 });
 
-// Prevent sleep mode - Heroku
-// app.get('/wakemydyno.txt', function(req, res) {
-// 	res.end('');
-// });
-
 // Les routes relatives aux utilisateurs auront pour prefix d'URL `/user`
 app.use('/api/categories', categoryRoutes);
 app.use('/api/links', linkRoutes);
@@ -49,11 +44,11 @@ app.use('/api/users', userRoutes);
 
 // Toutes les méthodes HTTP (GET, POST, etc.) des pages non trouvées afficheront
 // une erreur 404
-// app.all('*', function(req, res) {
-// 	res.status(404).json({
-// 		error: 'Not Found'
-// 	});
-// });
+app.all('*', function(req, res) {
+	res.status(404).json({
+		error: 'Not Found'
+	});
+});
 
 // Le dernier middleware de la chaîne gérera les d'erreurs Ce `error handler`
 // doit définir obligatoirement 4 paramètres Définition d'un middleware :
