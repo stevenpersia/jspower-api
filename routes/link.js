@@ -6,13 +6,15 @@ var isAuthenticated = require('../middlewares/isAuthenticated');
 
 // All links
 router.get('/', function(req, res, next) {
-	Link.find({ $or: [{}, { id: req.params.id }] }).exec(function(err, links) {
-		if (err) {
-			return next(err.message);
-		} else {
-			return res.json(links);
-		}
-	});
+	Link.find({ $or: [{}, { id: req.params.id }] })
+		.populate('category')
+		.exec(function(err, links) {
+			if (err) {
+				return next(err.message);
+			} else {
+				return res.json(links);
+			}
+		});
 });
 
 // Create a link
